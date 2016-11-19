@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+eval "$(docker-machine env lacqueristas)"
+docker-compose logs --follow

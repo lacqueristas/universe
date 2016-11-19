@@ -1,0 +1,36 @@
+version: '2'
+services:
+  origin:
+    command: "bin/rails server --port 3000 --bind '0.0.0.0'"
+    build:
+      context: ./origin
+    volumes:
+      - ./origin:/usr/src/origin
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - memcached
+    environment:
+      - RAILS_ENV
+      - RACK_ENV
+      - ORIGIN_SESSION_PRIVATE
+      - ORIGIN_SESSION_SALT
+  www:
+    command: "npm run start"
+    build:
+      context: ./www
+    volumes:
+      - ./www:/usr/src/www
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV
+  postgres:
+    image: postgres:9.6.0
+    ports:
+      - "5432:5432"
+  memcached:
+    image: memcached
+    ports:
+      - "11211:11211"

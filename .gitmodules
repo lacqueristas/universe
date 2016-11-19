@@ -1,0 +1,6 @@
+[submodule "origin"]
+	path = origin
+	url = git@github.com:lacqueristas/origin.git
+[submodule "www"]
+	path = www
+	url = git@github.com:lacqueristas/www.git

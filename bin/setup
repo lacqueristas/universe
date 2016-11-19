@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+bin/create &&
+bin/build &&
+bin/up &&
+sleep 2 &&
+bin/origin bin/rake db:create db:migrate db:seed &&
+bin/www npm run build &&
+bin/clean &&
+bin/restart

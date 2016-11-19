@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+docker-machine create --driver virtualbox --virtualbox-cpu-count 1 --virtualbox-memory 512 lacqueristas
+docker-machine start lacqueristas
+bin/nfs lacqueristas
