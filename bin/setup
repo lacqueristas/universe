@@ -8,4 +8,5 @@ sleep 2 &&
 bin/origin bin/rake db:create db:migrate db:seed &&
 bin/www npm run build &&
 bin/clean &&
-bin/restart
+bin/restart &&
+echo $DOCKER_HOST
