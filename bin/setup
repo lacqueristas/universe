@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 bin/create &&
+docker-machine regenerate-certs lacqueristas &&
 bin/build &&
 bin/up &&
 sleep 2 &&
