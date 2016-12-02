@@ -3,6 +3,7 @@
 bin/create &&
 docker-machine regenerate-certs lacqueristas &&
 bin/build &&
+rm -rf origin/tmp/pids/server.pid &&
 bin/up &&
 sleep 2 &&
 bin/origin bin/rake db:create db:migrate db:seed &&
