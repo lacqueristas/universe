@@ -2,11 +2,13 @@
 
 bin/create &&
 docker-machine regenerate-certs lacqueristas &&
+hotel start &&
+hotel add "http://`docker-machine ip lacqueristas`:3000" --name origin.lacqueristas --out ./hotel.log &&
+hotel add "http://`docker-machine ip lacqueristas`:3001" --name www.lacqueristas --out ./hotel.log &&
 bin/build &&
 rm -rf origin/tmp/pids/server.pid &&
 bin/up &&
 sleep 2 &&
 bin/origin bin/rake db:create db:migrate db:seed &&
 bin/clean &&
-bin/restart &&
-echo $DOCKER_HOST
+bin/restart

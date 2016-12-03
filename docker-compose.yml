@@ -16,6 +16,8 @@ services:
       - RACK_ENV
       - ORIGIN_SESSION_PRIVATE
       - ORIGIN_SESSION_SALT
+      - ORIGIN_LOCATION
+      - WWW_LOCATION
   www:
     command: "npm run start"
     build:
