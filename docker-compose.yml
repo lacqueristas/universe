@@ -13,7 +13,6 @@ services:
       - memcached
     environment:
       - RAILS_ENV
-      - RACK_ENV
       - ORIGIN_SESSION_PRIVATE
       - ORIGIN_SESSION_SALT
       - ORIGIN_LOCATION
