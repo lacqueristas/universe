@@ -27,6 +27,8 @@ services:
       - "3001:3001"
     environment:
       - NODE_ENV
+      - ORIGIN_LOCATION
+      - WWW_LOCATION
   postgres:
     image: postgres:9.6.0
     ports:
