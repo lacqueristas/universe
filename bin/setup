@@ -3,6 +3,7 @@
 bin/create &&
 docker-machine regenerate-certs lacqueristas &&
 npm install &&
+node_modules/.bin/hostile set "`docker-machine ip lacqueristas`" lacqueristas.dev &&
 hotel start &&
 hotel add "http://`docker-machine ip lacqueristas`:3000" --name origin.lacqueristas --out ./hotel.log &&
 hotel add "http://`docker-machine ip lacqueristas`:3001" --name www.lacqueristas --out ./hotel.log &&
