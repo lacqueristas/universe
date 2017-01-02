@@ -1,0 +1,27 @@
+{
+  "name": "universe",
+  "version": "1.0.0",
+  "description": "The universal docker composition of all lacqueristas software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lacqueristas/universe.git"
+  },
+  "keywords": [
+    "docker",
+    "compose"
+  ],
+  "author": "Kurtis Rainbolt-Greene <krainboltgreene@lacqueristas.club> (@krainboltgreen)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lacqueristas/universe/issues"
+  },
+  "homepage": "https://github.com/lacqueristas/universe#readme",
+  "dependencies": {
+    "hostile": "1.2.0",
+    "hotel": "0.5.13"
+  }
+}
