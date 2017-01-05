@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-docker-compose up -d --no-recreate --remove-orphans --abort-on-container-exit
 eval "$(docker-machine env lacqueristas)" &&
+docker-compose up -d --no-recreate --remove-orphans
