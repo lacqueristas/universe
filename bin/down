@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-eval "$(docker-machine env lacqueristas)"
 docker-compose down
+eval "$(docker-machine env lacqueristas)" &&
+docker-compose down &&
 docker-machine stop lacqueristas
