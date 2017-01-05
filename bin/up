@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-docker-machine start lacqueristas
 docker-compose up -d --no-recreate --remove-orphans --abort-on-container-exit
 eval "$(docker-machine env lacqueristas)" &&
