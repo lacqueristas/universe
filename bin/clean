@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-docker-compose run origin bin/rake tmp:clear
 eval "$(docker-machine env lacqueristas)" &&
+docker-compose exec origin bin/rake tmp:clear &&
