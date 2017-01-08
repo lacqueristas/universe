@@ -1,14 +1,32 @@
 #!/usr/bin/env bash
 
+echo "=== Installing network tools ===" &&
+npm install &&
+
+echo "=== Creating the virtual machine ===" &&
 bin/create &&
-docker-machine regenerate-certs lacqueristas &&
-hotel start &&
-hotel add "http://`docker-machine ip lacqueristas`:3000" --name origin.lacqueristas --out ./hotel.log &&
-hotel add "http://`docker-machine ip lacqueristas`:3001" --name www.lacqueristas --out ./hotel.log &&
+
+echo "=== Setting up the networking ===" &&
+bin/network &&
+
+echo "=== Building the containers ===" &&
 bin/build &&
-rm -rf origin/tmp/pids/server.pid &&
+
+echo "=== Setting up databases ===" &&
+eval "$(docker-machine env lacqueristas)" &&
+docker-compose up -d --remove-orphans postgres &&
+sleep 4 &&
+bin/postgres createdb lacqueristas_development -U postgres -h postgres &&
+bin/postgres createdb lacqueristas_test -U postgres -h postgres &&
+
+echo "=== Turning on services ===" &&
 bin/up &&
-sleep 2 &&
-bin/origin bin/rake db:create db:migrate db:seed &&
+
+echo "=== Seeding databases ===" &&
+bin/origin bin/rake db:migrate db:seed &&
+
+echo "=== Cleaning up orphans and temporary files ===" &&
 bin/clean &&
+
+echo "=== Restarting services ===" &&
 bin/restart

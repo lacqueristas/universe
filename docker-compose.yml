@@ -5,7 +5,7 @@ services:
     build:
       context: ./origin
     volumes:
-      - ./origin:/usr/src/origin
+      - ./origin:/usr/lib/origin
     ports:
       - "3000:3000"
     depends_on:
@@ -13,9 +13,9 @@ services:
       - memcached
     environment:
       - RAILS_ENV
-      - RACK_ENV
-      - ORIGIN_SESSION_PRIVATE
-      - ORIGIN_SESSION_SALT
+      - ORIGIN_ENCRYPTION_PRIVATE
+      - ORIGIN_ENCRYPTION_SALT
+      - RAILS_SESSION_PRIVATE
       - ORIGIN_LOCATION
       - WWW_LOCATION
   www:
@@ -23,11 +23,13 @@ services:
     build:
       context: ./www
     volumes:
-      - ./www:/usr/src/www
+      - ./www:/usr/lib/www
     ports:
       - "3001:3001"
     environment:
       - NODE_ENV
+      - ORIGIN_LOCATION
+      - WWW_LOCATION
   postgres:
     image: postgres:9.6.0
     ports:

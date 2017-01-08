@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
+docker-machine start lacqueristas
 eval "$(docker-machine env lacqueristas)" &&
-docker-compose build
+docker-compose start

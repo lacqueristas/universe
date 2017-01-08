@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-eval "$(docker-machine env lacqueristas)"
-docker-compose run --rm origin "$@"
+eval "$(docker-machine env lacqueristas)" &&
+docker-compose exec origin "$@"
