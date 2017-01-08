@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 eval "$(docker-machine env lacqueristas)" &&
-node_modules/.bin/hostile remove lacqueristas.dev &&
+node_modules/.bin/hostile remove "lacqueristas.local" &&
 node_modules/.bin/hotel rm --name origin.lacqueristas &&
 node_modules/.bin/hotel rm --name www.lacqueristas &&
 docker-compose down &&
