@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 eval "$(docker-machine env lacqueristas)" &&
-docker-compose exec origin "rm -rf tmp/pids/server.pid" &&
+rm -rf origin/tmp/pids/server.pid &&
 docker-compose restart
