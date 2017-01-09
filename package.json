@@ -4,6 +4,8 @@
   "description": "The universal docker composition of all lacqueristas software",
   "main": "index.js",
   "scripts": {
+    "hostile": "hostile",
+    "hotel": "hotel",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
