@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-eval "$(docker-machine env lacqueristas)"
+eval "$(docker-machine env lacqueristas)" &&
 docker-compose exec www "$@"
