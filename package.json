@@ -4,8 +4,11 @@
   "description": "The universal docker composition of all lacqueristas software",
   "main": "index.js",
   "scripts": {
+    "chokidar": "chokidar",
+    "parallelshell": "parallelshell",
     "hostile": "hostile",
     "hotel": "hotel",
+    "notify": "notify --title 'Lacqueristas Universe' --message 'Finished building.'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,7 +26,20 @@
   },
   "homepage": "https://github.com/lacqueristas/universe#readme",
   "dependencies": {
+    "babel-eslint": "^7",
+    "eslint": "^3",
+    "eslint-plugin-babel": "^4",
+    "eslint-plugin-immutable": "^1",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-jsx-a11y": "^3",
+    "eslint-plugin-mocha": "^4",
+    "eslint-plugin-node": "^3",
+    "eslint-plugin-react": "^6",
+    "greenkeeper": "^4",
+    "chokidar-cli": "1.2.0",
     "hostile": "1.2.0",
-    "hotel": "0.5.13"
+    "hotel": "0.5.13",
+    "node-notifier": "4.6.1",
+    "parallelshell": "2.0.0"
   }
 }
