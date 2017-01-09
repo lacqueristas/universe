@@ -16,8 +16,8 @@ echo "=== Setting up databases ===" &&
 eval "$(docker-machine env lacqueristas)" &&
 docker-compose up -d --remove-orphans postgres &&
 sleep 4 &&
-bin/postgres createdb lacqueristas_development -U postgres -h postgres &&
-bin/postgres createdb lacqueristas_test -U postgres -h postgres &&
+bin/postgres createdb lacqueristas_development -U postgres -h postgres
+bin/postgres createdb lacqueristas_test -U postgres -h postgres
 
 echo "=== Turning on services ===" &&
 bin/up &&
