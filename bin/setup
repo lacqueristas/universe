@@ -11,6 +11,7 @@ bin/network &&
 
 echo "=== Building the containers ===" &&
 bin/build &&
+bin/run www npm install &&
 
 echo "=== Setting up databases ===" &&
 bin/up postgres &&
