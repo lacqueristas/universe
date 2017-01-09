@@ -2,4 +2,4 @@
 
 docker-machine start lacqueristas
 eval "$(docker-machine env lacqueristas)" &&
-docker-compose start
+docker-compose start $1
