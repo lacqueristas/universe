@@ -27,7 +27,4 @@ echo "=== Seeding databases ===" &&
 bin/origin bin/rake db:migrate db:seed &&
 
 echo "=== Cleaning up orphans and temporary files ===" &&
-bin/clean &&
-
-echo "=== Restarting services ===" &&
-bin/restart
+bin/clean
