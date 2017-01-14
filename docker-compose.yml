@@ -11,6 +11,7 @@ services:
     depends_on:
       - postgres
       - memcached
+      - proxy
     environment:
       - RAILS_ENV=development
       - ORIGIN_ENCRYPTION_PRIVATE=7252a81d820bb7cd88fe35224b7b51f271a2f8fa5a092424bcafc1d1e5109cd47e2095ff50febc1a496d64fc8c016d634263e058812752c0ec9e3f3b07b72a4c
@@ -18,6 +19,7 @@ services:
       - RAILS_SESSION_PRIVATE=7252a81d820bb7cd88fe35224b7b51f271a2f8fa5a092424bcafc1d1e5109cd47e2095ff50febc1a496d64fc8c016d634263e058812752c0ec9e3f3b07b72a4c
       - ORIGIN_LOCATION=http://origin.lacqueristas.dev
       - WWW_LOCATION=http://www.lacqueristas.dev
+      - VIRTUAL_HOST=origin.lacqueristas.local
   www:
     command: "npm run start"
     build:
@@ -28,10 +30,12 @@ services:
       - "3001:3001"
     depends_on:
       - memcached
+      - proxy
     environment:
       - NODE_ENV=development
       - ORIGIN_LOCATION=http://origin.lacqueristas.dev
       - WWW_LOCATION=http://www.lacqueristas.dev
+      - VIRTUAL_HOST=www.lacqueristas.local
   postgres:
     image: postgres:9.6.0
     ports:
@@ -40,3 +44,9 @@ services:
     image: memcached
     ports:
       - "11211:11211"
+  proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-npm run hostile -- set "`docker-machine ip lacqueristas`" "laurelandwolf.local" &&
-npm run hotel -- start &&
-npm run hotel -- add "http://`docker-machine ip lacqueristas`:3001" --name www.lacqueristas &&
-npm run hotel -- add "http://`docker-machine ip lacqueristas`:3000" --name origin.lacqueristas
+sudo npm run hostile -- set "`docker-machine ip lacqueristas`" lacqueristas.local &&
+sudo npm run hostile -- set "`docker-machine ip lacqueristas`" www.lacqueristas.local &&
+sudo npm run hostile -- set "`docker-machine ip lacqueristas`" origin.lacqueristas.local

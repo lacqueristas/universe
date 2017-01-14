@@ -7,7 +7,6 @@
     "chokidar": "chokidar",
     "parallelshell": "parallelshell",
     "hostile": "hostile",
-    "hotel": "hotel",
     "notify": "notify --title 'Lacqueristas Universe' --message 'Finished building.'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -38,7 +37,6 @@
     "greenkeeper": "^4",
     "chokidar-cli": "1.2.0",
     "hostile": "1.2.0",
-    "hotel": "0.5.13",
     "node-notifier": "4.6.1",
     "parallelshell": "2.0.0"
   }
