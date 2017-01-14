@@ -2,4 +2,5 @@
 
 docker-machine start lacqueristas
 eval "$(docker-machine env lacqueristas)" &&
-docker-compose start $1
+bin/up &&
+bin/network
