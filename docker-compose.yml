@@ -26,6 +26,8 @@ services:
       - ./www:/usr/lib/www
     ports:
       - "3001:3001"
+    depends_on:
+      - memcached
     environment:
       - NODE_ENV=development
       - ORIGIN_LOCATION=http://origin.lacqueristas.dev
