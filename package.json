@@ -35,9 +35,9 @@
     "eslint-plugin-node": "^3",
     "eslint-plugin-react": "^6",
     "greenkeeper": "^4",
-    "chokidar-cli": "1.2.0",
-    "hostile": "1.2.0",
-    "node-notifier": "4.6.1",
-    "parallelshell": "2.0.0"
+    "chokidar-cli": "^1",
+    "hostile": "^1",
+    "node-notifier": "^4",
+    "parallelshell": "^2"
   }
 }
