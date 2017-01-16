@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-eval "$(docker-machine env lacqueristas)" &&
 sudo npm run hostile -- remove lacqueristas.local &&
 sudo npm run hostile -- remove www.lacqueristas &&
 sudo npm run hostile -- remove origin.lacqueristas &&
