@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+echo "=== Watching for local changes ===" &&
 eval "$(docker-machine env lacqueristas)" &&
 npm run parallelshell -- \
   "npm run chokidar -- './www/source/components' --command 'bin/www npm run build:components && bin/www npm run build:client && bin/restart www && npm run notify'" \

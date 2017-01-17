@@ -2,29 +2,10 @@
 
 echo "=== Installing network tools ===" &&
 npm install &&
-
-echo "=== Creating the virtual machine ===" &&
 bin/create &&
-
-echo "=== Setting up the networking ===" &&
 bin/network &&
-
-echo "=== Building the containers ===" &&
-bin/build &&
-bin/run www npm install &&
-bin/run www npm run build &&
-
-echo "=== Setting up databases ===" &&
-bin/up postgres &&
-sleep 4 &&
-bin/postgres createdb lacqueristas_development -U postgres -h postgres
-bin/postgres createdb lacqueristas_test -U postgres -h postgres
-
+bin/compile &&
+bin/provision &&
 echo "=== Turning on services ===" &&
 bin/up &&
-
-echo "=== Seeding databases ===" &&
-bin/origin bin/rake db:migrate db:seed &&
-
-echo "=== Cleaning up orphans and temporary files ===" &&
 bin/clean
