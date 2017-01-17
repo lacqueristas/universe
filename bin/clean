@@ -2,4 +2,3 @@
 
 eval "$(docker-machine env lacqueristas)" &&
 docker-compose rm --force &&
-docker-compose exec origin bin/rake tmp:clear
