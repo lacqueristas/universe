@@ -37,11 +37,11 @@ services:
       - WWW_LOCATION=http://www.lacqueristas.local
       - VIRTUAL_HOST=www.lacqueristas.local
   postgres:
-    image: postgres:9.6.0
+    image: postgres:9.6.1-alpine
     ports:
       - "5432:5432"
   memcached:
-    image: memcached
+    image: memcached:1.4.34-alpine
     ports:
       - "11211:11211"
   proxy:
