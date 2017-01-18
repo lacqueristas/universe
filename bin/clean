@@ -2,4 +2,6 @@
 
 echo "=== Cleaning up orphans and temporary files ===" &&
 eval "$(docker-machine env lacqueristas)" &&
-docker-compose rm --force
+docker-compose rm --force &&
+docker-machine ssh lacqueristas 'docker volume ls -q --filter "dangling=true" | xargs -r docker volume rm' &&
+docker-machine ssh lacqueristas 'docker images -q --filter "dangling=true" | xargs -r docker rmi'
