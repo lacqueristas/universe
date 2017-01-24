@@ -50,3 +50,14 @@ services:
       - "80:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+  portainer:
+    image: portainer/portainer:1.11.1
+    command: -d /data --bind :3002
+    ports:
+      - "3002:3002"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./portainer/data:/data
+    environment:
+      - VIRTUAL_HOST=portainer.lacqueristas.local
+      - VIRTUAL_PORT=3002

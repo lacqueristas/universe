@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 sudo npm run hostile -- remove lacqueristas.local &&
-sudo npm run hostile -- remove www.lacqueristas &&
-sudo npm run hostile -- remove origin.lacqueristas &&
+sudo npm run hostile -- remove www.lacqueristas.local &&
+sudo npm run hostile -- remove origin.lacqueristas.local &&
+sudo npm run hostile -- remove portainer.lacqueristas.local &&
 docker-machine stop lacqueristas
