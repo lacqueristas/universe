@@ -1,7 +1,6 @@
 version: '2'
 services:
   origin:
-    command: "bin/rails server --port 3000 --bind '0.0.0.0'"
     build:
       context: ./origin
     volumes:
@@ -13,7 +12,9 @@ services:
       - memcached
       - proxy
     environment:
+      - PORT=3000
       - RAILS_ENV=development
+      - DATABASE_HOST=postgres
       - ORIGIN_ENCRYPTION_PRIVATE=7252a81d820bb7cd88fe35224b7b51f271a2f8fa5a092424bcafc1d1e5109cd47e2095ff50febc1a496d64fc8c016d634263e058812752c0ec9e3f3b07b72a4c
       - ORIGIN_ENCRYPTION_SALT=4eef1c3ac67dc26dbb48dcc3288babadcab7c4e5811dd8129ceccb04391ed33cd237be669116ae5324dfa04f7f04d2b6a311b7330348d2da43759e25518ae21a
       - RAILS_SESSION_PRIVATE=7252a81d820bb7cd88fe35224b7b51f271a2f8fa5a092424bcafc1d1e5109cd47e2095ff50febc1a496d64fc8c016d634263e058812752c0ec9e3f3b07b72a4c
@@ -21,7 +22,6 @@ services:
       - WWW_LOCATION=http://www.lacqueristas.local
       - VIRTUAL_HOST=origin.lacqueristas.local
   www:
-    command: "npm run start"
     build:
       context: ./www
     volumes:
@@ -32,6 +32,7 @@ services:
       - memcached
       - proxy
     environment:
+      - PORT=3001
       - NODE_ENV=development
       - ORIGIN_LOCATION=http://origin.lacqueristas.local
       - WWW_LOCATION=http://www.lacqueristas.local
