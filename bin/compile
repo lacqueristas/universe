@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
 echo "=== Building the containers ===" &&
-bin/build &&
 bin/run www npm install &&
 bin/run www npm run build

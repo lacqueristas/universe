@@ -4,6 +4,7 @@ echo "=== Installing network tools ===" &&
 npm install &&
 bin/create &&
 bin/network &&
+bin/build &&
 bin/compile &&
 bin/provision &&
 echo "=== Turning on services ===" &&

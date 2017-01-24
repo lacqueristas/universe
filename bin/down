@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-eval "$(docker-machine env wolf-machine)" &&
-docker-compose down
+eval "$(docker-machine env lacqueristas)" &&
+docker-compose down --remove-orphans

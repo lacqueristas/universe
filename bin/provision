@@ -4,14 +4,5 @@ echo "=== Turning on persistance services ===" &&
 bin/up postgres &&
 bin/up memcached &&
 
-echo "=== Turning off database dependents ===" &&
-bin/stop origin &&
-
 echo "=== Creating databases ===" &&
-sleep 2 &&
-
-echo "=== Turning on database dependents ===" &&
-bin/up origin
-
-echo "=== Initializing database restoration ===" &&=
-bin/origin bin/rake --trace db:drop db:create db:migrate db:seed
+bin/run origin bin/rake --trace db:drop db:create db:migrate db:seed

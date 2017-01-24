@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
+echo "=== Building the container(s) ===" &&
 eval "$(docker-machine env lacqueristas)" &&
 docker-compose build $1

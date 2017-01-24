@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-docker-machine start lacqueristas
+bin/create &&
 eval "$(docker-machine env lacqueristas)" &&
-bin/up &&
-bin/network
+bin/network &&
+bin/up
