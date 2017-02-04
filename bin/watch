@@ -2,8 +2,10 @@
 
 echo "=== Watching for local changes ===" &&
 eval "$(docker-machine env lacqueristas)" &&
-npm run parallelshell -- \
+bin/up &&
+npm run concurrently -- \
   "npm run chokidar -- './www/source/components' --command 'bin/www npm run build:components && bin/www npm run build:client && bin/restart www && npm run notify'" \
   "npm run chokidar -- './www/source/server' --command 'bin/www npm run build:server && bin/restart www && npm run notify'" \
   "npm run chokidar -- './www/source/client' --command 'bin/www npm run build:client && npm run notify'" \
-  "npm run chokidar -- './www/source/assets' --command 'bin/www npm run build:assets && npm run notify'"
+  "npm run chokidar -- './www/source/assets' --command 'bin/www npm run build:assets && npm run notify'" \
+  "bin/logs"
