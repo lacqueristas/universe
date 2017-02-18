@@ -2,4 +2,5 @@
 
 eval "$(docker-machine env lacqueristas)" &&
 rm -rf origin/tmp/pids/server.pid &&
+bin/up $1 &&
 docker-compose restart $1
