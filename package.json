@@ -7,6 +7,7 @@
     "chokidar": "chokidar",
     "concurrently": "concurrently",
     "hostile": "hostile",
+    "database:backup": "s3-cli put --acl-public ./origin/tmp/dump/sterile.sql s3://artifacts/10bd8051-dc08-42fc-ba12-3e443e9bfb11"
   },
   "repository": {
     "type": "git",
@@ -36,5 +37,6 @@
     "chokidar-cli": "^1",
     "hostile": "^1",
     "concurrently": "^3",
+    "s3-cli": "0.13.0"
   }
 }
