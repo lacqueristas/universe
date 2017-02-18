@@ -3,5 +3,5 @@
 echo "=== Cleaning up orphans and temporary files ===" &&
 eval "$(docker-machine env lacqueristas)" &&
 docker-compose rm --force &&
-docker-machine ssh lacqueristas 'docker system prune'
+docker-machine ssh lacqueristas 'docker system prune --force' &&
 bin/run origin bin/rake tmp:clear log:clear LOGS=all
