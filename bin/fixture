@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+echo "=== Turning off services ===" &&
+bin/stop &&
+
+echo "=== Turning on persistence services ===" &&
+bin/up postgres &&
+
+echo "=== Pulling production backup ===" &&
+mkdir -p './origin/tmp/dump' &&
+curl -o './origin/tmp/dump/backup.sql' `heroku pg:backups public-url --quiet --app=lacqueristas-origin-production` &&
+
+echo "=== Importing database ===" &&
+bin/run origin bin/rake db:drop db:create &&
+bin/run origin pg_restore --format=c --no-acl --no-owner --host=postgres --username=postgres  --dbname=origin_development './tmp/dump/backup.sql' &&
+
+echo "=== Pruning database ===" &&
+npm run database:prune &&
+
+echo "=== Sanitizing Database ==="
+npm run database:sanitize &&
+
+echo "=== Dumping database ===" &&
+bin/run origin pg_dump --dbname=origin_development --host=postgres --username=postgres --format=c --compress=9 --file='./tmp/dump/sterile.sql' &&
+
+echo "=== Pushing database ==="
+npm run database:backup &&
+
+echo "=== Provisioning databases ===" &&
+bin/stop postgres &&
+bin/clean &&
+bin/provision &&
+
+echo "=== Turning on services ===" &&
+bin/up
