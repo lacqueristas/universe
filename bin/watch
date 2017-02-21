@@ -6,7 +6,7 @@ bin/clean &&
 bin/up &&
 npm run concurrently -- \
   "npm run chokidar -- './www/transpiled/components' './www/transpiled/server' --command 'bin/restart www' --debounce" \
-  "npm run chokidar -- './www/source/components' './www/source/client' --command 'bin/www npm run build:client' --debounce" \
+  "npm run chokidar -- './www/source/components' './www/source/client' --command 'bin/run www npm run build:client' --debounce" \
   "npm run chokidar -- './www/source/components' './www/source/server' --command 'bin/run www npm run build:server' --debounce" \
   "npm run chokidar -- './origin/lib' './origin/config' --command 'bin/restart origin' --debounce" \
   "npm run chokidar -- './origin/Gemfile' --command 'bin/build origin && bin/up origin' --debounce" \
