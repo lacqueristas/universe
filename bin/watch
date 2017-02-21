@@ -4,6 +4,7 @@ echo "=== Watching for local changes ===" &&
 eval "$(docker-machine env lacqueristas)" &&
 bin/clean &&
 bin/up &&
+bin/compile &&
 npm run concurrently -- \
   "npm run chokidar -- './www/transpiled/components' './www/transpiled/server' --command 'bin/restart www' --debounce" \
   "npm run chokidar -- './www/source/components' './www/source/client' --command 'bin/run www npm run build:client' --debounce" \
