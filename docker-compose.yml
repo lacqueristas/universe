@@ -38,15 +38,21 @@ services:
       - WWW_LOCATION=http://www.lacqueristas.local
       - VIRTUAL_HOST=www.lacqueristas.local
   postgres:
+    logging:
+      driver: "none"
     image: postgres:9.6.1-alpine
     ports:
       - "5432:5432"
   memcached:
+    logging:
+      driver: "none"
     image: memcached:1.4.34-alpine
     ports:
       - "11211:11211"
   proxy:
     image: jwilder/nginx-proxy
+    logging:
+      driver: "none"
     ports:
       - "80:80"
     volumes:
