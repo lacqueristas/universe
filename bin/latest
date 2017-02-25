@@ -2,8 +2,8 @@
 
 eval "$(docker-machine env lacqueristas)" &&
 git pull origin core &&
-cd ./origin && git pull origin core --rebase --autostash --commit && cd - &&
-cd ./www && git pull origin core --rebase --autostash --commit && cd - &&
+cd ./origin && git pull origin core --rebase --autostash && cd - &&
+cd ./www && git pull origin core --rebase --autostash && cd - &&
 bin/build &&
 bin/provision &&
 bin/compile &&
