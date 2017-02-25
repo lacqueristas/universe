@@ -3,9 +3,9 @@
 echo "=== 🔥 ===" &&
 eval "$(docker-machine env lacqueristas)" &&
 bin/clean &&
+bin/off &&
+docker-machine rm --force lacqueristas &&
 rm -rf node_modules &&
 rm -rf www/node_modules &&
 rm -rf www/transpiled &&
-rm -rf origin/tmp &&
-bin/off &&
-docker-machine rm --force lacqueristas
+rm -rf origin/tmp
