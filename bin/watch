@@ -6,9 +6,10 @@ bin/clean &&
 bin/up &&
 bin/compile &&
 npm run concurrently -- \
-  "npm run chokidar -- './www/transpiled/components' './www/transpiled/server' --command 'bin/restart www' --debounce" \
-  "npm run chokidar -- './www/source/components' './www/source/client' --command 'bin/www npm run build:client' --debounce" \
-  "npm run chokidar -- './www/source/components' './www/source/server' --command 'bin/www npm run build:server' --debounce" \
-  "npm run chokidar -- './origin/lib' './origin/config' --command 'bin/restart origin' --debounce" \
-  "npm run chokidar -- './origin/Gemfile' --command 'bin/build origin && bin/up origin' --debounce" \
+  "npm run chokidar -- './www/source/@lacqueristas' --ignore '/node_modules/' --command 'cd ./www && npm run link'" \
+  "npm run chokidar -- './www/transpiled/server' --ignore '/node_modules/' --command 'bin/restart www' --debounce" \
+  "npm run chokidar -- './www/source/@lacqueristas' './www/source/client' --ignore '/node_modules/' --command 'bin/www npm run build:client' --debounce" \
+  "npm run chokidar -- './www/source/server' --ignore '/node_modules/' --command 'bin/www npm run build:server' --debounce" \
+  "npm run chokidar -- './origin/lib' './origin/config' --ignore '/node_modules/' --command 'bin/restart origin' --debounce" \
+  "npm run chokidar -- './origin/Gemfile' --ignore '/node_modules/' --command 'bin/build origin && bin/up origin' --debounce" \
   "bin/logs"
