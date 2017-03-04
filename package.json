@@ -37,8 +37,6 @@
     "eslint-plugin-react": "6.10.0",
     "greenkeeper": "4.2.1",
     "hostile": "1.2.0",
-    "npm-check-updates": "2.10.3",
-    "npm-explicit-deps": "1.0.2",
     "s3-cli": "0.13.0"
   }
 }
