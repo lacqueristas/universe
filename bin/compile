@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-echo "=== Building the containers ===" &&
+echo "=== Compiling dependencies ===" &&
+npm install && 
 bin/run www npm install &&
 bin/run www npm run link &&
 bin/run www npm run build
