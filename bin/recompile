@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+echo "=== Rebuilding dependencies ===" &&
+npm run concurrently -- --kill-others \
+  "rm -r ./node_modules" \
+  "rm -r ./www/node_modules" &&
+bin/compile
