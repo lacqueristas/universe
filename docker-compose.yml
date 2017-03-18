@@ -57,3 +57,23 @@ services:
       - "80:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+  vault:
+    build: ./vault
+    logging:
+      driver: "none"
+    ports:
+      - "3005:3005"
+    depends_on:
+      - consul
+    cap_add:
+      - IPC_LOCK
+    environment:
+      - PORT=3005
+      - VAULT_ADDR=http://0.0.0.0:3005
+      - CONSUL_URI=consul:8500
+  consul:
+    image: consul:0.7.4
+    logging:
+      driver: "none"
+    ports:
+      - "8500:8500"

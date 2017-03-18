@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+cat << EOF > ./configuration.hcl
+backend "consul" {
+  address = "$CONSUL_URI"
+  path = "vault"
+}
+
+listener "tcp" {
+  address = "0.0.0.0:$PORT"
+  tls_disable = 1
+}
+EOF
+vault server -config=./configuration.hcl
