@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "=== Watching for local changes ===" &&
-eval "$(docker-machine env lacqueristas)" &&
+eval "$(docker-machine env lacqueristas --shell default)" &&
 bin/clean &&
 bin/up &&
 bin/compile &&

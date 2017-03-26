@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-eval "$(docker-machine env lacqueristas)" &&
+eval "$(docker-machine env lacqueristas --shell default)" &&
 docker-compose run --rm $@

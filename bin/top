@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 echo "=== Reading latest container stats ===" &&
-eval "$(docker-machine env lacqueristas)" &&
+eval "$(docker-machine env lacqueristas --shell default)" &&
 docker stats $(docker ps --format={{.Names}})

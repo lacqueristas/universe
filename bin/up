@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-eval "$(docker-machine env lacqueristas)" &&
+eval "$(docker-machine env lacqueristas --shell default)" &&
 rm -rf origin/tmp/pids/server.pid &&
 docker-compose up -d --remove-orphans $1

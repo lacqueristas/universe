@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 bin/create &&
-eval "$(docker-machine env lacqueristas)" &&
+eval "$(docker-machine env lacqueristas --shell default)" &&
 bin/network &&
 bin/up

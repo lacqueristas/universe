@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "=== Cleaning up orphans and temporary files ===" &&
-eval "$(docker-machine env lacqueristas)" &&
+eval "$(docker-machine env lacqueristas --shell default)" &&
 docker-compose rm --force &&
 docker-machine ssh lacqueristas 'docker system prune --force' &&
 bin/run origin bin/rake tmp:clear log:clear LOGS=all
