@@ -20,6 +20,7 @@ services:
       - RAILS_SESSION_PRIVATE=7252a81d820bb7cd88fe35224b7b51f271a2f8fa5a092424bcafc1d1e5109cd47e2095ff50febc1a496d64fc8c016d634263e058812752c0ec9e3f3b07b72a4c
       - ORIGIN_LOCATION=http://origin.lacqueristas.local
       - WWW_LOCATION=http://www.lacqueristas.local
+      - LUMIN_LOCATION=http://lumin.lacqueristas.local
       - VIRTUAL_HOST=origin.lacqueristas.local
   www:
     build:
@@ -36,7 +37,27 @@ services:
       - NODE_ENV=development
       - ORIGIN_LOCATION=http://origin.lacqueristas.local
       - WWW_LOCATION=http://www.lacqueristas.local
+      - LUMIN_LOCATION=http://lumin.lacqueristas.local
       - VIRTUAL_HOST=www.lacqueristas.local
+  lumin:
+    build:
+      context: ./lumin
+    volumes:
+      - ./lumin:/usr/lib/lumin
+    ports:
+      - "3002:3002"
+    depends_on:
+      - proxy
+    environment:
+      - PORT=3002
+      - NODE_ENV=development
+      - ORIGIN_LOCATION=http://origin.lacqueristas.local
+      - WWW_LOCATION=http://www.lacqueristas.local
+      - LUMIN_LOCATION=http://lumin.lacqueristas.local
+      - GOOGLE_CLOUD_PROJECT=lacqueristas
+      - GOOGLE_CLOUD_KEY_FILENAME=googleCloud.secret.json
+      - GOOGLE_CLOUD_STORAGE_BUCKET=lacqueristas-development
+      - VIRTUAL_HOST=lumin.lacqueristas.local
   postgres:
     logging:
       driver: "none"

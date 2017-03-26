@@ -7,3 +7,7 @@
 [submodule "assets"]
 	path = assets
 	url = git@github.com:lacqueristas/assets.git
+[submodule "lumin"]
+	path = lumin
+	url = git@github.com:lacqueristas/lumin.git
+	branch = core

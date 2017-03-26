@@ -4,4 +4,4 @@ echo "=== Setting up the networking ===" &&
 sudo npm run hostile -- set "`docker-machine ip lacqueristas`" lacqueristas.local &&
 sudo npm run hostile -- set "`docker-machine ip lacqueristas`" www.lacqueristas.local &&
 sudo npm run hostile -- set "`docker-machine ip lacqueristas`" origin.lacqueristas.local
-sudo npm run hostile -- set "`docker-machine ip lacqueristas`" portainer.lacqueristas.local
+sudo npm run hostile -- set "`docker-machine ip lacqueristas`" lumin.lacqueristas.local

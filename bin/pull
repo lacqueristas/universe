@@ -2,4 +2,5 @@
 
 git pull &&
 cd ./origin && git pull && cd - &&
+cd ./lumin && git pull && cd - &&
 cd ./www && git pull && cd -

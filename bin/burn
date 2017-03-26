@@ -6,6 +6,8 @@ bin/clean &&
 rm -rf node_modules &&
 rm -rf www/node_modules &&
 rm -rf www/transpiled &&
+rm -rf lumin/node_modules &&
+rm -rf lumin/transpiled &&
 rm -rf origin/tmp &&
 bin/off &&
 docker-machine rm --force lacqueristas
