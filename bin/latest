@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-eval "$(docker-machine env lacqueristas)" &&
-git pull origin core &&
-cd ./origin && git pull origin core --rebase --autostash --commit && cd - &&
-cd ./www && git pull origin core --rebase --autostash --commit && cd - &&
+bin/pull &&
 bin/build &&
 bin/provision &&
 bin/compile &&

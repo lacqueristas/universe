@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+git pull &&
+cd ./origin && git pull && cd - &&
+cd ./www && git pull && cd -
