@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+echo "=== Deploying services ===" &&
+cd origin && bin/deploy $1 && cd - &&
+cd lumin && bin/deploy $1 && cd - &&
+cd www && bin/deploy $1 && cd -
