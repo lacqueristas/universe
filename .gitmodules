@@ -11,3 +11,6 @@
 	path = lumin
 	url = git@github.com:lacqueristas/lumin.git
 	branch = core
+[submodule "haunter"]
+	path = haunter
+	url = git@github.com:lacqueristas/haunter.git
