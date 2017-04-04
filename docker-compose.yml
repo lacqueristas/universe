@@ -22,6 +22,7 @@ services:
       - WWW_LOCATION=http://www.lacqueristas.local
       - LUMIN_LOCATION=http://lumin.lacqueristas.local
       - VIRTUAL_HOST=origin.lacqueristas.local
+      - BUGSNAG_API_PRIVATE=cda4663b8f04520d2b6bc025d7325ea6
   www:
     build:
       context: ./www
@@ -33,6 +34,8 @@ services:
       - memcached
       - proxy
     environment:
+      - BUGSNAG_API_PRIVATE=703d5caeb76c1ea38d1c0078fa169977
+      - BUGSNAG_API_PUBLIC=65eccb16c964ea80775c5cc74f3922c3
       - PORT=3001
       - NODE_ENV=development
       - ORIGIN_LOCATION=http://origin.lacqueristas.local
