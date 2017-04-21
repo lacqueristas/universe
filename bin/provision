@@ -5,4 +5,4 @@ bin/up postgres &&
 bin/up memcached &&
 
 echo "=== Creating databases ===" &&
-bin/run origin bin/rake --trace db:drop db:create db:migrate db:seed
+bin/run origin bin/rake --trace db:migrate
