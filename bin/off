@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 
-sudo npm run hostile -- remove lacqueristas.local &&
-sudo npm run hostile -- remove www.lacqueristas.local &&
-sudo npm run hostile -- remove origin.lacqueristas.local &&
-sudo npm run hostile -- remove lumin.lacqueristas.local &&
-docker-machine stop lacqueristas
+bin/netsleep &&
+bin/stop

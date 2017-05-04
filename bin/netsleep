@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo "=== Setting up the networking ===" &&
+sudo npm run hostile -- remove memcached.lacqueristas.local &&
+sudo npm run hostile -- remove postgres.lacqueristas.local &&
+sudo npm run hostile -- remove www.lacqueristas.local &&
+sudo npm run hostile -- remove origin.lacqueristas.local &&
+sudo npm run hostile -- remove lumin.lacqueristas.local

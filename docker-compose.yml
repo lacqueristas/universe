@@ -5,14 +5,11 @@ services:
       context: ./origin
     volumes:
       - ./origin:/usr/lib/origin
-    ports:
-      - "3000:3000"
     depends_on:
       - postgres
       - memcached
       - proxy
     environment:
-      - PORT=3000
       - RAILS_ENV=development
       - DATABASE_HOST=postgres
       - ORIGIN_ENCRYPTION_PRIVATE=7252a81d820bb7cd88fe35224b7b51f271a2f8fa5a092424bcafc1d1e5109cd47e2095ff50febc1a496d64fc8c016d634263e058812752c0ec9e3f3b07b72a4c
@@ -28,15 +25,12 @@ services:
       context: ./www
     volumes:
       - ./www:/usr/lib/www
-    ports:
-      - "3001:3001"
     depends_on:
       - memcached
       - proxy
     environment:
       - BUGSNAG_API_PRIVATE=703d5caeb76c1ea38d1c0078fa169977
       - BUGSNAG_API_PUBLIC=65eccb16c964ea80775c5cc74f3922c3
-      - PORT=3001
       - NODE_ENV=development
       - ORIGIN_LOCATION=http://origin.lacqueristas.local
       - WWW_LOCATION=http://www.lacqueristas.local
@@ -47,12 +41,9 @@ services:
       context: ./lumin
     volumes:
       - ./lumin:/usr/lib/lumin
-    ports:
-      - "3002:3002"
     depends_on:
       - proxy
     environment:
-      - PORT=3002
       - NODE_ENV=development
       - ORIGIN_LOCATION=http://origin.lacqueristas.local
       - WWW_LOCATION=http://www.lacqueristas.local
@@ -62,17 +53,17 @@ services:
       - GOOGLE_CLOUD_STORAGE_BUCKET=lacqueristas-development
       - VIRTUAL_HOST=lumin.lacqueristas.local
   postgres:
-    logging:
-      driver: "none"
     image: postgres:9.6.1-alpine
-    ports:
-      - "5432:5432"
-  memcached:
     logging:
       driver: "none"
+    environment:
+      - VIRTUAL_HOST=postgres.lacqueristas.local
+  memcached:
     image: memcached:1.4.34-alpine
-    ports:
-      - "11211:11211"
+    logging:
+      driver: "none"
+    environment:
+      - VIRTUAL_HOST=memcached.lacqueristas.local
   proxy:
     image: jwilder/nginx-proxy
     logging:
