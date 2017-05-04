@@ -4,5 +4,7 @@ echo "=== Turning on persistance services ===" &&
 bin/up postgres &&
 bin/up memcached &&
 
+bin/run origin bin/rake --trace db:create
+
 echo "=== Creating databases ===" &&
 bin/run origin bin/rake --trace db:migrate
