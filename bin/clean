@@ -5,5 +5,5 @@ eval "$(docker-machine env lacqueristas --shell default)" &&
 docker-compose rm --force
 docker-machine ssh lacqueristas 'docker system prune --force'
 bin/run origin bin/rake tmp:clear log:clear LOGS=all
-bin/run www npm prune
-bin/run lumin npm prune
+bin/run www npm5 prune
+bin/run lumin npm5 prune

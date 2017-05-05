@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "=== Building the containers ===" &&
-bin/run www npm install &&
-bin/run lumin npm install &&
+bin/run www npm5 install &&
+bin/run lumin npm5 install &&
 bin/run www npm run build &&
 bin/run lumin npm run build
