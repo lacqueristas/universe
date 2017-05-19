@@ -20,6 +20,8 @@ services:
       - LUMIN_LOCATION=http://lumin.lacqueristas.local
       - VIRTUAL_HOST=origin.lacqueristas.local
       - BUGSNAG_API_PRIVATE=cda4663b8f04520d2b6bc025d7325ea6
+      - GOOGLE_CLOUD_PROJECT=lacqueristas
+      - GOOGLE_CLOUD_PUBSUB_TOPIC=development
   www:
     build:
       context: ./www
