@@ -55,7 +55,7 @@ services:
       - GOOGLE_CLOUD_STORAGE_BUCKET=lacqueristas-development
       - VIRTUAL_HOST=lumin.lacqueristas.local
   postgres:
-    image: postgres:9.6.1-alpine
+    image: postgres:9.5.7-alpine
     logging:
       driver: "none"
     environment:
