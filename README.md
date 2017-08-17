@@ -5,6 +5,7 @@ Welcome to the 💅 universe.
 
 ## setup
 
-  1. `git clone lacqueristas/universe`
-  2. Install Docker Toolset
-  3. `bin/setup`
+  1. `git clone git@github.com:lacqueristas/universe.git`
+  2. `git submodule update --init`
+  3. Install Docker Toolset
+  4. `bin/setup`
